@@ -13,11 +13,6 @@ import (
 	"time"
 )
 
-//!-main
-// Packages not needed by version in book.
-
-//!+main
-
 var palette = []color.Color{color.White, color.Black}
 
 const (
