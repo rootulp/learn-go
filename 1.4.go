@@ -22,9 +22,9 @@ func main() {
 			f.Close()
 		}
 	}
-	for line, n := range counts {
+	for fileNameAndLine, n := range counts {
 		if n > 1 {
-			fmt.Printf("%d\t%s\n", n, line)
+			fmt.Printf("%d\t%s\n", n, fileNameAndLine)
 		}
 	}
 }
@@ -32,7 +32,7 @@ func main() {
 func countLines(f *os.File, counts map[string]int) {
 	input := bufio.NewScanner(f)
 	for input.Scan() {
-		counts[input.Text()]++
+		counts[f.Name()+" "+input.Text()]++
 	}
 	// NOTE: ignoring potential errors from input.Err()
 }
